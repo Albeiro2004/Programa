@@ -39,19 +39,15 @@ $result = $conexion->query($query);
 </head>
 <body>
 
+<div class="todo">
 
 <header class="header"> 
         <div class="menu container">
         <a href="#" class="logo" onclick="window.location.href='index1.php';">Sobre Ruedas</a>
 
-        <input type="checkbox" id="menu" />
-        <label for="menu">
-            <img src="images/menu.png" class="menu-icono" alt="menu">
-        </label>
         <nav class="navbar">
             <ul>
-            
-              
+                        
                <li><button class="menu-btn" onclick="toggleMenu(event, 'menu1')"
                ><img src="images/registro.png">Registrar</button>
                <div class="menu1" id="menu1">
@@ -135,24 +131,11 @@ $result = $conexion->query($query);
         
 
         </div>
-
     </header>
-
-    <header>
-       
-    <button class="fixed-icon" onclick="scrollToTop()">
-    <i class="fas fa-home"></i> <!-- Ícono de Font Awesome -->
-    </button>
-
-    <script>
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    </script>
     
-    <main>
-    <h1>Lista de Productos</h1>
+        <h1>Lista de Productos</h1>
 
+    <main>
     
     <!-- Formulario de búsqueda -->
     <div class="search-container">
@@ -160,13 +143,13 @@ $result = $conexion->query($query);
         type="text" 
         id="searchInput" 
         placeholder="Buscar por ID, Nombre, Marca o Proveedor" 
-        oninput="filterTable()" 
-    >
-    <button type="button" onclick="resetTable()">Mostrar Todo</button>
+        oninput="filterTable()">
     </div>
     
-    
-    <table id="tabla-productos">
+    <div class="custom-scroll" style="height: auto;">
+
+    <div class="tabla">
+        <table id="tabla-productos">
         <thead>
             <tr>
                 <th>Código</th>
@@ -194,27 +177,16 @@ $result = $conexion->query($query);
     
 
     </table>
+    </div>
+    </div>
+
         <br>
     </main>
-</header>
 
     <h3>Almacen Sobre Ruedas</h3>
-    <footer class="footer">
-            <div class="footer-content container">
-                <div class="link">
-                    
-                    <ul>
-                        <p>Este es un almacén dedicado a ofrecer repuestos y accesorios para motos de buenas marcas 
-                            y modelos. Nuestro objetivo es brindar un servicio rápido y eficiente, con un enfoque en el
-                             orden, la disponibilidad inmediata de productos 
-                             y una atención al cliente de calidad. Como empleado, tu labor es asegurar que cada repuesto 
-                             esté correctamente almacenado, disponible cuando el cliente lo requiera, y brindar una 
-                             asesoría adecuada.</p>
-                    </ul>
-                </div>
 
-            </div>
-        </footer>
+    </div>
+
         <script>
     const LOCK_KEY = "page_opened1";
     const INSTANCE_ID = Date.now().toString(); // Identifica de manera única esta pestaña
@@ -297,42 +269,6 @@ $result = $conexion->query($query);
 })();
 
 </script>
-
-<style>
-.content {
-            padding: 20px;
-            margin-bottom: 60px; /* Espacio para evitar solapamiento con el ícono fijo */
-        }
-
-        /* Estilo del ícono fijo */
-        .fixed-icon {
-            position: fixed;
-            bottom: 10px; /* Posición desde el borde inferior */
-            right: 5px; /* Posición desde el borde derecho */
-            background-color:rgba(51, 138, 51, 0.5); ;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .fixed-icon:hover {
-            background-color:rgb(26, 180, 95);
-        }
-    </style>
-
-    <script>
-    function resetTable() {
-        // Redirige a la página actual sin parámetros en la URL
-        window.location.href = window.location.pathname;
-    }
-    </script>
 
         <script src="script1.js"></script>
         

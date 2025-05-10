@@ -8,20 +8,40 @@
     list-style: none;
 }
 
-
-body{
+html, body {
     font-family: 'Poppins' , sans-serif;
-    background-color:#f0f0f0;
-} 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/fondoProducto.jpg'); 
+    background-size: cover;       /* Ajusta la imagen para cubrir toda la pantalla */
+    background-position: center;  /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.todo {
+  height: 100%;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 0; /* Sin espacio entre los elementos flex */
+  padding: 0; 
+}
 
 img{
     max-width: 100%;
 }
 
 .container {
-    max-width: 1300px;
-    margin: auto;
-
+    max-width: 100%;
+    margin-left: 15px;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .menu-btn  { 
@@ -161,7 +181,7 @@ img{
     display: inline-block;
     transition: all 0.4s ease-in-out;
     position: relative;
-    background: linear-gradient(90deg, #00ff88, #004d1a);
+    background: linear-gradient(90deg, #004d1a,  #00ff88);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -190,7 +210,6 @@ img{
     transform-origin: left;
 }
 
-
 .search-container {
     font-size: 12px;
     margin: 20px 0;
@@ -215,11 +234,12 @@ nav ul li button{
 }
 
 .search-container input {
+    background-color: whitesmoke;
     padding: 5px;
     width: 20%;
     font-size: 12px;
     border: 1px solid #b0b4ae;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
 
 }
@@ -244,11 +264,6 @@ nav ul li button{
     background-color: #d35151; /* Rojo más oscuro al pasar el cursor */
 }
 
-
-#menu {
-    display: none;
-}
-
 .menu-icono {
     width: 25px;
 }
@@ -258,44 +273,62 @@ nav ul li button{
     display: none;
 }
 
-
-header h1 {
+ h1 {
     text-align: center;
     align-items: center;
     background-color: rgb(88, 83, 83);
     color: #ddd;
 }
 
-main {
-    background-color: #f0f0f0;
-    background-image: url('images/fondoProducto.jpg'); 
-    background-size: cover;       /* Ajusta la imagen para cubrir toda la pantalla */
-    background-position: center;  /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-}
-
 .menu .navbar ul li {
     position: relative;
     float: left;
-}
-.menu .navbar ul li {
     font-size: 14px;
     padding: 20px;
     display: block;
     border-radius: 5px;
+    z-index: 2 !important;
 }
+
 br {
     background-color: #04632c;
 }
 
-table {
+/* Contenedor principal */
+.tabla {
+    height: 60vh; /* Altura fija, ajusta según necesites */
+    overflow-y: auto; /* Scroll vertical */
     width: 95%;
     margin: 20px auto;
-    border-collapse: separate; /* importante */
-    border-spacing: 0; /* para evitar espacios entre celdas */
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 10px; /* Bordes redondeados del contenedor */
 }
+
+/* Tabla dentro del contenedor */
+.tabla table {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    margin: 0; /* Elimina los márgenes internos */
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 0; /* Quita el border-radius de la tabla interna */
+    overflow: visible; /* Importante: cambiamos a visible */
+}
+
+.tabla thead{
+    border-radius: 15px;
+}
+/* Encabezados fijos */
+.tabla thead th {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 1;
+    /* Asegura que los bordes se vean correctamente */
+}
+
+.tabla {
+    border-bottom: 2px #04632c solid;
+}
+
 tr:nth-child(even) {
     background-color: #cfcfcf; /* Color para las filas pares */
 }
@@ -327,18 +360,6 @@ td img {
     object-fit: cover;
 }
 
-.footer {
-    background-color: #cecece;
-    padding: 15px 0;
-   
-}
-
-.footer-content {
-    display: flex;
-    justify-content: center;
-    
-}
-
  h3 {
     color: #005e14;
     font-size: 14px;
@@ -346,14 +367,10 @@ td img {
     background-color: #b8b8b8;
     text-align: center;
 }
-p{
-    text-align: justify;
-    font-size: 14px;
-}
 
 li {
     list-style: none; /* Quita el punto de la lista */
-    text-align: left ; /* Centra el texto dentro del <li> */
+    text-align: left ;
 }
 
 li a {
@@ -369,5 +386,40 @@ li a:hover {
    
 }
 
+/* Estilo básico para el contenedor con scroll */
+.custom-scroll {
+  
+  /* Para Firefox */
+  scrollbar-width: thin;  /* "auto", "thin" o "none" */
+  scrollbar-color: #349451 #e0e0e0;  /* thumb y track color */
+}
 
+/* Para Chrome, Edge, Safari */
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;  /* Ancho del scrollbar */
+}
 
+/* Track (la pista donde se desliza) */
+.custom-scroll::-webkit-scrollbar-track {
+  background: #e0e0e0;  /* Color de fondo */
+  border-radius: 10px;  /* Bordes redondeados */
+}
+
+/* Thumb (la parte que se arrastra) */
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #4cf37e;  /* Color del thumb */
+  border-radius: 10px;  /* Bordes redondeados */
+  
+  /* Opcional: efecto de gradiente */
+  background-image: linear-gradient(180deg, #4cf37e 0%, #4cf37e 99%);
+}
+
+/* Hover en el thumb */
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #4cf37e;  /* Color al pasar el mouse */
+}
+
+/* Botones de scroll (arriba/abajo) - opcional */
+.custom-scroll::-webkit-scrollbar-button {
+  display: none;  /* Oculta los botones */
+}
